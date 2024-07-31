@@ -1,38 +1,448 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Quicksand:wght@300..700&family=Special+Elite&display=swap');
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #e7e4e4;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+  background-color: transparent;
+  color: white;
+  padding: 10px 85px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.5s ease;
+}
+
+.navbar.navbar-visible {
+  background-color: white;
+  color: #171616;
+}
+.navbar.navbar-visible ul li a{
+  color: #171616;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+.logo img {
+  height: 55px; /* Adjust based on your logo size */
+  width: auto; /* Maintain aspect ratio */
+}
+.navbar nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar nav ul li {
+  display: inline;
+  font-optical-sizing: auto;
+  font-size: 17px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 2px;
+}
+
+.navbar nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  transition: color 0.5s ease-in-out;
+  font-weight: bold;
+}
+
+.navbar nav ul li a:hover {
+  color: rgb(13, 111, 223);
+}
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin-top: -100px;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.carousel-inner button{
+  padding: 20px 20px 20px 0;
+  width: 250px;
+  align-self: center;
+  background-color: rgb(8, 69, 209);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  border: none;
+  letter-spacing: 2px;
+  color: white;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.carousel-inner button:hover{
+  background-color: rgb(10, 72, 10);
+}
+
+.carousel-inner button.clicked .discover{
+  transition: transform 0.5s ease;
+  transform: rotate(360deg);
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.close-menu{
+  display: none;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  position: relative;
+  transform: scale(0.5);
+  opacity: 0.5;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.carousel-item.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 800px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 150px;
+  left: 100px;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+.carousel h1{
+  position: absolute;
+  margin-top: 60px;
+  color: rgb(77, 160, 255);
+  margin-left: 300px;
+  font-family: "Kaushan Script", cursive;
+  font-size: 43px;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 1.5px;
+}
+.carousel h3{
+  font-size: 100px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+
+}
+.carousel h2{
+  font-size: 100px;
+  margin-top: -110px;
+  font-family: 'Montserrat', sans-serif;
+
+}
+.carousel p{
+  font-size: 20px;
+  margin-top: -50px;
+  font-family: 'Montserrat', sans-serif;
+}
+.carousel-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.carousel-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  border: none;
+  outline: none;
+}
+
+.carousel-button:hover{
+  background-color: rgb(8, 69, 209);
+}
+
+.box-section {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 0;
+  margin-top: 100px;
+}
+
+.box {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+  height: 85px;
+  width: 320px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  box-shadow: 5px 5px 8px rgb(140, 135, 135);
+  border-radius: 5px;
+  display: flex;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.box h4{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+}
+.box-caption{
+  margin-top: -8px;
+}
+.box h3{
+  margin-top: -20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+.box:hover {
+  transform: translateY(-10px);
+  background-color: #171616;
+  color: white;
+  box-shadow: none;
+  transition: 0.3s ease-in-out;
+}
+.box:hover .icon{
+  color: rgb(77, 160, 255);
+}
+
+/* Styles for the new box carousel section */
+.carousel-section {
+  position: relative;
+  background-image: url(https://i.postimg.cc/rsD6Mv3d/Whats-App-Image-2024-07-31-at-13-03-34-d3958db8-2.png);
+  background-size: cover;
+  margin-top: 40px;
+  height: 500px;
   text-align: center;
+  margin-top: 100px;
+}
+.carousel-section p{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: white;
+  padding-top: 100px;
+}
+.carousel-section h4{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 47px;
+  font-weight: 600;
+  color: white;
+  margin-top: -10px;
+}
+.carousel-section .carousel-buttons{
+  justify-content: center;
+  margin-top: 500px;
+  gap: 0px;
+}
+.carousel-section .carousel-buttons button{
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.carousel-section .carousel-buttons .icon{
+  color: #6e6d6d;
+  transition: 0.5s ease-in-out;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.carousel-section .carousel-buttons .icon:hover{
+  color:rgb(8, 69, 209);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.carousel-boxes-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-box-item {
+  flex: 0 0 33.3333%;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-section .box {
+  margin-top: -10px;
+  height: 400px;
+  width: 420px;
+  border: none;
+  background-color: white;
+  outline: none;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-top: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.carousel-section .box:hover{
+  background-color: white;
+  color: black !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.person{
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+  gap: 20px;
+  padding-left: 50px;
+  margin-top: -40px;
+}
+
+.person img{
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+.person h3{
+  padding-top: 15px;
+  font-size: 17px;
+}
+
+.person h2{
+  font-size: 17px;
+  color: rgb(8, 69, 209);
+}
+.carousel-section .box p{
+  font-size: 15px;
+  padding-top: 5px;
+  color: #171616;
+  padding: 50px 30px 30px 50px;
+  line-height: 25px;
+  margin-top: -80px;
+}
+
+.carousel-section .box h1{
+  padding-left: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  padding-top: 30px;
+  color: rgb(8, 69, 209);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    left: -100%; /* Hidden off-screen initially */
+    height: 100vh;
+    background-color: #333;
+    overflow: hidden !important;
+    position: fixed;
+    top: 0;
+    padding: 10px 0;
+    transition: 0.5s ease-in-out;
   }
-  to {
-    transform: rotate(360deg);
+
+  .nav-links.open {
+    display: flex;
+    left: 0;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    padding-top: 50px 0;
+  }
+
+  .nav-links ul li {
+    margin: 10px 20px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+  .close-menu {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  .carousel-caption{
+    margin-bottom: 150px;
+  }
+  .carousel-caption h1{
+    margin-left: 0px;
+    margin-top: -5px;
+    font-size: 25px;
+  }
+  .carousel-caption h3{
+    font-size: 40px;
+  }
+  .carousel-caption h2{
+    font-size: 40px;
+    padding-top: 70px;
+  }
+
+  .box-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .carousel-box-item {
+    flex: 0 0 100%;
+  }
+
+  .carousel-boxes-inner {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .carousel-section .carousel-buttons {
+    margin-top: 1400px;
+  }
+  
+}
+
+@media (max-width: 450px){
+  .carousel-caption{
+    margin-left: -20px;
+  }
+  .navbar nav ul{
+    gap: 80px;
   }
 }
